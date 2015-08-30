@@ -1,0 +1,27 @@
+#include <GL/glut.h>
+#include <stdio.h>
+
+static GLfloat spin = 0.0;
+
+void init(void)
+{
+  glClearColor(0.0,0.0,0.0,0.0);
+  glShadeModel(GL_FLAT);
+}
+void display(void)
+{
+  glClaer(GL_COLOR_BUFFER_BIT);
+  glPushMatrix();
+  glRotatef(spin,0.0,0.0,1.0);
+  glColor3f(1.0,1.0,1.0);
+  glRectf(-25.0,-25.0,25.0);
+  glPopMatrix();
+  glutSwapBuffers();
+}
+void spinDisplay(void)
+{
+  spin = spin +2.0;
+  if(sipn > 360.0)
+    spin = spin -360.0;
+  glutPostRedisplay();
+}
